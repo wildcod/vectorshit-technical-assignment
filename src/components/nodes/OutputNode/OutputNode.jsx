@@ -2,9 +2,9 @@
 
 import { useState } from 'react';
 import { Handle, Position } from 'reactflow';
-import Dropdown from '../Dropdown/Dropdown';
-import InputField from '../InputField/InputField';
-import Typography from '../Typography/Typography';
+import MuiDropdown from '../../common/Dropdown/MuiDropdown';
+import MuiTextInput from '../../common/InputField/MuiTextInput';
+import NodeLayout from '../../common/Layout/NodeLayout/NodeLayout';
 
 const OUTPUT_OPTIONS = [
   { displayText: 'Text', value: 'Text' },
@@ -26,20 +26,20 @@ export const OutputNode = ({ id, data }) => {
   };
 
   return (
-    <div style={{ width: 200, height: 80, border: '1px solid black' }}>
+    <NodeLayout>
       <Handle type="target" position={Position.Left} id={`${id}-value`} />
       <div>
-        <Typography>Output</Typography>
+        <span>Output</span>
       </div>
       <div>
-        <InputField label="Name" value={currName} onChange={handleNameChange} />
-        <Dropdown
+        <MuiTextInput value={currName} onChange={handleNameChange} />
+        <MuiDropdown
           label="Type"
           value={outputType}
           onChange={handleTypeChange}
           options={OUTPUT_OPTIONS}
         />
       </div>
-    </div>
+    </NodeLayout>
   );
 };

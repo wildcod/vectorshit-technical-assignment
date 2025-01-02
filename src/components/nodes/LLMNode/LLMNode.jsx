@@ -1,11 +1,11 @@
 // llmNode.js
 
 import { Handle, Position } from 'reactflow';
-import Typography from '../Typography/Typography';
+import NodeLayout from '../../common/Layout/NodeLayout/NodeLayout';
 // export const LLMNode = ({ id, data }) => {
 export const LLMNode = ({ id }) => {
   return (
-    <div style={{ width: 200, height: 80, border: '1px solid black' }}>
+    <NodeLayout>
       <Handle
         type="target"
         position={Position.Left}
@@ -19,12 +19,12 @@ export const LLMNode = ({ id }) => {
         style={{ top: `${200 / 3}%` }}
       />
       <div>
-        <Typography>LLM</Typography>
+        <span>LLM</span>
       </div>
       <div>
-        <Typography>This is a LLM.</Typography>
+        <span>This is a LLM.</span>
       </div>
       <Handle type="source" position={Position.Right} id={`${id}-response`} />
-    </div>
+    </NodeLayout>
   );
 };

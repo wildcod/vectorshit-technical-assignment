@@ -6,10 +6,10 @@ import { useState, useRef, useCallback } from 'react';
 import ReactFlow, { Controls, Background, MiniMap } from 'reactflow';
 import { useStore } from '../store';
 import { shallow } from 'zustand/shallow';
-import { InputNode } from './nodes/InputNode';
-import { LLMNode } from './nodes/LLMNode';
-import { OutputNode } from './nodes/OutputNode';
-import { TextNode } from './nodes/TextNode';
+import { InputNode } from './nodes/InputNode/InputNode';
+import { LLMNode } from './nodes/LLMNode/LLMNode';
+import { OutputNode } from './nodes/OutputNode/OutputNode';
+import { TextNode } from './nodes/TextNode/TextNode';
 
 import 'reactflow/dist/style.css';
 
@@ -105,7 +105,8 @@ export const PipelineUI = () => {
           nodeTypes={nodeTypes}
           proOptions={proOptions}
           snapGrid={[gridSize, gridSize]}
-          connectionLineType="smoothstep">
+          connectionLineType="smoothstep"
+        >
           <Background color="#aaa" gap={gridSize} />
           <Controls />
           <MiniMap />
