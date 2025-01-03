@@ -1,22 +1,18 @@
 // toolbar.js
 
-import { DraggableNode } from './DraggableNode';
+import { Box } from '@mui/material';
+import DraggableNode from '../DraggableNode/DraggableNode';
+import styles from './Toolbar.styles';
 
 export const PipelineToolbar = () => {
   return (
-    <div style={{ padding: '10px' }}>
-      <div
-        style={{
-          marginTop: '20px',
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: '10px'
-        }}>
+    <Box sx={styles.wrapper}>
+      <Box sx={styles.container}>
         <DraggableNode type="customInput" label="Input" />
         <DraggableNode type="llm" label="LLM" />
         <DraggableNode type="customOutput" label="Output" />
         <DraggableNode type="text" label="Text" />
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };

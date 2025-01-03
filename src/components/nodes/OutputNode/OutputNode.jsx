@@ -5,6 +5,8 @@ import { Handle, Position } from 'reactflow';
 import MuiDropdown from '../../common/Dropdown/MuiDropdown';
 import MuiTextInput from '../../common/InputField/MuiTextInput';
 import NodeLayout from '../../common/Layout/NodeLayout/NodeLayout';
+import Typography from '../../common/Typography/Typography';
+import styles from './OutputNode.styles';
 
 const OUTPUT_OPTIONS = [
   { displayText: 'Text', value: 'Text' },
@@ -28,16 +30,22 @@ export const OutputNode = ({ id, data }) => {
   return (
     <NodeLayout>
       <Handle type="target" position={Position.Left} id={`${id}-value`} />
+      <Typography variant="h5" color="primary.main" mb={2}>
+        Output
+      </Typography>
       <div>
-        <span>Output</span>
-      </div>
-      <div>
-        <MuiTextInput value={currName} onChange={handleNameChange} />
+        <MuiTextInput
+          label="Name"
+          value={currName}
+          onChange={handleNameChange}
+          sx={styles.input}
+        />
         <MuiDropdown
           label="Type"
           value={outputType}
           onChange={handleTypeChange}
           options={OUTPUT_OPTIONS}
+          sx={styles.input}
         />
       </div>
     </NodeLayout>

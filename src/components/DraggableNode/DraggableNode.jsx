@@ -1,6 +1,10 @@
 // draggableNode.js
 
-export const DraggableNode = ({ type, label }) => {
+import { Box } from '@mui/material';
+import styles from './DraggableNode.styles';
+import Typography from '../common/Typography/Typography';
+
+const DraggableNode = ({ type, label }) => {
   const onDragStart = (event, nodeType) => {
     const appData = { nodeType };
     event.target.style.cursor = 'grabbing';
@@ -12,23 +16,19 @@ export const DraggableNode = ({ type, label }) => {
   };
 
   return (
-    <div
+    <Box
       className={type}
+      sx={styles.container}
       onDragStart={(event) => onDragStart(event, type)}
       onDragEnd={(event) => (event.target.style.cursor = 'grab')}
-      style={{
-        cursor: 'grab',
-        minWidth: '80px',
-        height: '60px',
-        display: 'flex',
-        alignItems: 'center',
-        borderRadius: '8px',
-        backgroundColor: '#1C2536',
-        justifyContent: 'center',
-        flexDirection: 'column'
-      }}
-      draggable>
-      <span style={{ color: '#fff' }}>{label}</span>
-    </div>
+      draggable
+    >
+      {/* TODO: change color into theme variable */}
+      <Typography variant={'body'} color="#fff">
+        {label}
+      </Typography>
+    </Box>
   );
 };
+
+export default DraggableNode;

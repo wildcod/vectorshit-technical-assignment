@@ -4,9 +4,10 @@ import React from 'react';
 const containerStyle = {
   display: 'flex',
   flexDirection: 'column',
-  padding: '1rem',
+  padding: '1rem 1.5rem',
   minHeight: 80,
-  border: '1px solid',
+  border: '2px solid',
+  borderRadius: '8px',
   borderColor: 'primary.main',
   minWidth: 250
 };

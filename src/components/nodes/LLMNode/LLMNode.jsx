@@ -2,6 +2,7 @@
 
 import { Handle, Position } from 'reactflow';
 import NodeLayout from '../../common/Layout/NodeLayout/NodeLayout';
+import Typography from '../../common/Typography/Typography';
 // export const LLMNode = ({ id, data }) => {
 export const LLMNode = ({ id }) => {
   return (
@@ -18,12 +19,10 @@ export const LLMNode = ({ id }) => {
         id={`${id}-prompt`}
         style={{ top: `${200 / 3}%` }}
       />
-      <div>
-        <span>LLM</span>
-      </div>
-      <div>
-        <span>This is a LLM.</span>
-      </div>
+      <Typography variant="h5" color="primary.main" mb={2}>
+        LLM
+      </Typography>
+      <Typography variant="body">This is a LLM.</Typography>
       <Handle type="source" position={Position.Right} id={`${id}-response`} />
     </NodeLayout>
   );

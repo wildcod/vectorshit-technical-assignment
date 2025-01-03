@@ -6,6 +6,7 @@ import MuiTextInput from '../../common/InputField/MuiTextInput';
 import MuiDropdown from '../../common/Dropdown/MuiDropdown';
 import NodeLayout from '../../common/Layout/NodeLayout/NodeLayout';
 import Typography from '../../common/Typography/Typography';
+import styles from './InputNode.styles';
 
 const INPUT_OPTIONS = [
   { displayText: 'Text', value: 'Text' },
@@ -29,13 +30,18 @@ export const InputNode = ({ id, data }) => {
 
   return (
     <NodeLayout>
-      <Typography variant="h5">Input Node</Typography>
+      <Typography variant="h4" color="primary.main" fontWeight={500} mb={2}>
+        Input Node
+      </Typography>
       <MuiTextInput
-        placeholder="Name"
+        sx={styles.input}
+        label="Name"
         value={currName}
         onChange={handleNameChange}
       />
       <MuiDropdown
+        sx={styles.input}
+        label="Type"
         value={inputType}
         onChange={handleTypeChange}
         options={INPUT_OPTIONS}

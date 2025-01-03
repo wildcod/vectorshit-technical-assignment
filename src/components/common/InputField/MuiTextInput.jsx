@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
 import TextField from '@mui/material/TextField';
-import styles from './MuiTextInput.styles';
 
 const MuiTextInput = (
   {
@@ -10,11 +9,12 @@ const MuiTextInput = (
     onChange,
     placeholder,
     label,
-    size,
+    size = 'medium',
     sx = {},
+    type = 'text',
     fullWidth = true,
     disabled = false,
-    variant = 'standard'
+    variant = 'outlined'
   },
   ref
 ) => {
@@ -22,7 +22,8 @@ const MuiTextInput = (
     <TextField
       data-testid={testId}
       inputRef={ref}
-      sx={{ ...styles.textInput, ...sx }}
+      type={type}
+      sx={sx}
       fullWidth={fullWidth}
       size={size}
       name={name}
@@ -34,10 +35,14 @@ const MuiTextInput = (
       variant={variant}
       slotProps={{
         inputLabel: {
-          disabled: true
+          sx: {
+            color: 'primary.main'
+          }
         },
         input: {
-          disableUnderline: true
+          sx: {
+            borderRadius: '24px'
+          }
         }
       }}
     />

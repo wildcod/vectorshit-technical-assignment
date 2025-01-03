@@ -5,9 +5,11 @@ const Typography = ({
   children,
   variant,
   sx,
-  color = 'primary.light',
+  fontWeight,
+  color = '#000',
   noWrap = false,
-  align = 'inherit'
+  align = 'inherit',
+  ...rest
 }) => {
   return (
     <MuiMuiTypography
@@ -16,6 +18,8 @@ const Typography = ({
       noWrap={noWrap}
       align={align}
       color={color}
+      fontWeight={fontWeight}
+      {...rest}
     >
       {children}
     </MuiMuiTypography>

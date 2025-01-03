@@ -3,7 +3,7 @@ import { createTheme } from '@mui/material/styles';
 const vectorShiftTheme = createTheme({
   palette: {
     primary: {
-      main: '#9610ff',
+      main: '#6266ee',
       light: '#e6ddfd',
       dark: '#9610ff'
     },
