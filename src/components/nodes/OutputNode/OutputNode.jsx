@@ -48,6 +48,7 @@ export const OutputNode = ({ id, data }) => {
           sx={styles.input}
         />
       </div>
+      <Handle type="source" position={Position.Right} id={`${id}-value`} />
     </NodeLayout>
   );
 };
