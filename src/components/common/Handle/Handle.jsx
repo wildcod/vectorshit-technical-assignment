@@ -13,10 +13,16 @@ const styles = {
   }
 };
 
-const Handle = ({ type, position, id }) => {
+const Handle = ({ type, position, id, ...rest }) => {
   return (
     <Box sx={styles.container}>
-      <RFHandle type={type} position={position} id={id} className={'handle'} />
+      <RFHandle
+        type={type}
+        position={position}
+        id={id}
+        className={'handle'}
+        {...rest}
+      />
     </Box>
   );
 };

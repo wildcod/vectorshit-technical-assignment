@@ -3,7 +3,6 @@ import TextField from '@mui/material/TextField';
 
 const TextInput = (
   {
-    testId,
     value,
     name,
     onChange,
@@ -20,7 +19,6 @@ const TextInput = (
 ) => {
   return (
     <TextField
-      data-testid={testId}
       inputRef={ref}
       type={type}
       sx={sx}
