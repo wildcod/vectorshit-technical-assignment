@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Position, useUpdateNodeInternals } from 'reactflow';
 import NodeLayout from '../../common/Layout/NodeLayout/NodeLayout';
 import TextAreaInput from '../../common/TextAreaInput/TextAreaInput';
-import { extractStringsEnclosedInBraces } from '../../utils';
+import { extractStringsEnclosedInBraces } from '../../../utils';
 import Handle from '../../common/Handle/Handle';
 
 const MIN_HEIGHT = 112;

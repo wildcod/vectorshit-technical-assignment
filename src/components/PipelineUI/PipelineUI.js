@@ -7,7 +7,7 @@ import { LLMNode } from '../nodes/LLMNode/LLMNode';
 import { OutputNode } from '../nodes/OutputNode/OutputNode';
 import { TextNode } from '../nodes/TextNode/TextNode';
 import { FileNode } from '../nodes/FileNode/FileNode';
-import useDragNDrop from '../hooks/useDragNDrop';
+import useDragNDrop from '../../hooks/useDragNDrop';
 import { Box } from '@mui/material';
 import styles from './PIpelineUI.styles';
 import 'reactflow/dist/style.css';
