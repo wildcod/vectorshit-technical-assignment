@@ -13,21 +13,18 @@ const selector = (state) => ({
   edges: state.edges
 });
 
+const getSuccessMessage = (data) => `Number of Nodes: ${data.num_nodes}\n
+Number of Edges: ${data.num_edges}\n
+Pipeline graph is ${data.is_dag ? 'cyclic' : 'Non cyclic'}`;
+
 const ActionBar = () => {
   const { nodes, edges } = useStore(selector, shallow);
-  const { mutate } = useMutation(parsePipeline, {
+  const { mutate, isLoading } = useMutation(parsePipeline, {
     onError: (error) => {
-      // An error happened!
-      console.log(error);
+      alert(`An error occurred: ${error.message}`);
     },
     onSuccess: (data) => {
-      // Boom baby!
-      console.log(data);
-      alert(`
-      Number of Nodes: ${data.num_nodes}\n
-      Number of Edges: ${data.num_edges}\n
-      Pipeline graph is ${data.is_dag ? 'cyclic' : 'Non cyclic'}    
-      `);
+      alert(getSuccessMessage(data));
     }
   });
 
@@ -45,17 +42,18 @@ const ActionBar = () => {
     mutate({ nodes: transformNodes, edges: transformEdges });
   };
 
-  console.log('LOGGER', nodes, edges);
   return (
     <Box sx={styles.actionbar}>
       <Box sx={styles.title}>
-        <Typography variant="h2" color="primary.main">
+        <Typography variant="h2" color="primary.contrastText">
           Pipeline
         </Typography>
       </Box>
       <List sx={styles.actionList}>
         <ListItem sx={styles.listItem}>
-          <Button onClick={submitHandler}>Save</Button>
+          <Button disabled={isLoading} onClick={submitHandler}>
+            Submit
+          </Button>
         </ListItem>
         <ListItem sx={styles.listItem}>
           <Button>Run</Button>

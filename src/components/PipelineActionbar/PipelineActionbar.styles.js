@@ -4,8 +4,9 @@ const styles = {
     width: '100%',
     alignItems: 'center',
     gap: '1rem',
-    padding: '1rem 2rem',
-    boxSizing: 'border-box'
+    padding: '0.5rem 2rem',
+    boxSizing: 'border-box',
+    backgroundColor: '#000'
   },
   title: {
     flex: 1

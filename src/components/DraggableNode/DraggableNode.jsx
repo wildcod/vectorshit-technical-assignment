@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 import styles from './DraggableNode.styles';
 import Typography from '../common/Typography/Typography';
 
-const DraggableNode = ({ type, label }) => {
+const DraggableNode = ({ type, label, icon: Icon }) => {
   const onDragStart = (event, nodeType) => {
     const appData = { nodeType };
     event.target.style.cursor = 'grabbing';
@@ -23,8 +23,8 @@ const DraggableNode = ({ type, label }) => {
       onDragEnd={(event) => (event.target.style.cursor = 'grab')}
       draggable
     >
-      {/* TODO: change color into theme variable */}
-      <Typography variant={'body'} color="#fff">
+      <Icon />
+      <Typography variant={'mini'} color="grey.dark">
         {label}
       </Typography>
     </Box>

@@ -1,12 +1,12 @@
 // inputNode.js
 
-import { useCallback, useState } from 'react';
-import { Handle, Position } from 'reactflow';
-import MuiTextInput from '../../common/InputField/MuiTextInput';
-import MuiDropdown from '../../common/Dropdown/MuiDropdown';
+import { useState } from 'react';
+import { Position } from 'reactflow';
+import TextInput from '../../common/InputField/TextInput';
+import Dropdown from '../../common/Dropdown/Dropdown';
 import NodeLayout from '../../common/Layout/NodeLayout/NodeLayout';
-import Typography from '../../common/Typography/Typography';
-import styles from './InputNode.styles';
+import commonStyles from '../Node.styles';
+import Handle from '../../common/Handle/Handle';
 
 const INPUT_OPTIONS = [
   { displayText: 'Text', value: 'Text' },
@@ -19,28 +19,24 @@ export const InputNode = ({ id, data }) => {
   );
   const [inputType, setInputType] = useState(data?.inputType || 'Text');
 
-  const handleNameChange = useCallback((e) => {
+  const handleNameChange = (e) => {
     setCurrName(e.target.value);
-  }, []);
+  };
 
-  const handleTypeChange = useCallback((e) => {
-    console.log(e);
+  const handleTypeChange = (e) => {
     setInputType(e.target.value);
-  }, []);
+  };
 
   return (
-    <NodeLayout>
-      <Typography variant="h4" color="primary.main" fontWeight={500} mb={2}>
-        Input Node
-      </Typography>
-      <MuiTextInput
-        sx={styles.input}
+    <NodeLayout title="Input" id={id}>
+      <TextInput
+        sx={commonStyles.input}
         label="Name"
         value={currName}
         onChange={handleNameChange}
       />
-      <MuiDropdown
-        sx={styles.input}
+      <Dropdown
+        sx={commonStyles.input}
         label="Type"
         value={inputType}
         onChange={handleTypeChange}

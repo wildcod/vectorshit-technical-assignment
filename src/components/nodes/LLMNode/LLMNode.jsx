@@ -1,12 +1,13 @@
 // llmNode.js
 
-import { Handle, Position } from 'reactflow';
+import { Position } from 'reactflow';
 import NodeLayout from '../../common/Layout/NodeLayout/NodeLayout';
 import Typography from '../../common/Typography/Typography';
-// export const LLMNode = ({ id, data }) => {
+import Handle from '../../common/Handle/Handle';
+
 export const LLMNode = ({ id }) => {
   return (
-    <NodeLayout>
+    <NodeLayout title="LLM" id={id}>
       <Handle
         type="target"
         position={Position.Left}
@@ -19,9 +20,6 @@ export const LLMNode = ({ id }) => {
         id={`${id}-prompt`}
         style={{ top: `${200 / 3}%` }}
       />
-      <Typography variant="h5" color="primary.main" mb={2}>
-        LLM
-      </Typography>
       <Typography variant="body">This is a LLM.</Typography>
       <Handle type="source" position={Position.Right} id={`${id}-response`} />
     </NodeLayout>

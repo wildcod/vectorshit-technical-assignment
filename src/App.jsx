@@ -1,5 +1,5 @@
 import { PipelineToolbar } from './components/Toolbar/Toolbar';
-import { PipelineUI } from './components/UI';
+import { PipelineUI } from './components/PipelineUI/PipelineUI';
 import PipelineActionbar from './components/PipelineActionbar/PipelineActionbar';
 
 function App() {

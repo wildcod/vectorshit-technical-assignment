@@ -1,6 +1,9 @@
 const styles = {
   wrapper: {
-    padding: '10px'
+    padding: '10px',
+    backgroundColor: 'grey.light',
+    border: '1px solid',
+    borderColor: 'grey.main'
   },
   container: {
     marginTop: '20px',

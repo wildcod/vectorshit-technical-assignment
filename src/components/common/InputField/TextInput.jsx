@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import TextField from '@mui/material/TextField';
 
-const MuiTextInput = (
+const TextInput = (
   {
     testId,
     value,
@@ -49,4 +49,4 @@ const MuiTextInput = (
   );
 };
 
-export default forwardRef(MuiTextInput);
+export default forwardRef(TextInput);

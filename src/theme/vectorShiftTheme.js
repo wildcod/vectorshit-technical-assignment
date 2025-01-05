@@ -4,12 +4,16 @@ const vectorShiftTheme = createTheme({
   palette: {
     primary: {
       main: '#6266ee',
-      light: '#e6ddfd',
-      dark: '#9610ff'
+      light: '#9093f3',
+      dark: '#3439e9',
+      contrastText: '#ffffff'
     },
-    secondary: {
-      main: '#af91c3',
-      light: '#ffe9ff'
+    grey: {
+      main: '#ddd',
+      lighter: '#fafafa',
+      light: '#fefefe',
+      dark: '#99989D',
+      medium: 'rgba(0, 0, 0, 0.23)'
     }
   },
   typography: {

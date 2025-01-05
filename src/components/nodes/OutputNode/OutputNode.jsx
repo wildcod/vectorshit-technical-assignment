@@ -1,12 +1,12 @@
 // outputNode.js
 
 import { useState } from 'react';
-import { Handle, Position } from 'reactflow';
-import MuiDropdown from '../../common/Dropdown/MuiDropdown';
-import MuiTextInput from '../../common/InputField/MuiTextInput';
+import { Position } from 'reactflow';
+import Dropdown from '../../common/Dropdown/Dropdown';
+import TextInput from '../../common/InputField/TextInput';
 import NodeLayout from '../../common/Layout/NodeLayout/NodeLayout';
-import Typography from '../../common/Typography/Typography';
-import styles from './OutputNode.styles';
+import commonStyles from '../Node.styles';
+import Handle from '../../common/Handle/Handle';
 
 const OUTPUT_OPTIONS = [
   { displayText: 'Text', value: 'Text' },
@@ -28,26 +28,21 @@ export const OutputNode = ({ id, data }) => {
   };
 
   return (
-    <NodeLayout>
+    <NodeLayout title="Output" id={id}>
       <Handle type="target" position={Position.Left} id={`${id}-value`} />
-      <Typography variant="h5" color="primary.main" mb={2}>
-        Output
-      </Typography>
-      <div>
-        <MuiTextInput
-          label="Name"
-          value={currName}
-          onChange={handleNameChange}
-          sx={styles.input}
-        />
-        <MuiDropdown
-          label="Type"
-          value={outputType}
-          onChange={handleTypeChange}
-          options={OUTPUT_OPTIONS}
-          sx={styles.input}
-        />
-      </div>
+      <TextInput
+        label="Name"
+        value={currName}
+        onChange={handleNameChange}
+        sx={commonStyles.input}
+      />
+      <Dropdown
+        label="Type"
+        value={outputType}
+        onChange={handleTypeChange}
+        options={OUTPUT_OPTIONS}
+        sx={commonStyles.input}
+      />
       <Handle type="source" position={Position.Right} id={`${id}-value`} />
     </NodeLayout>
   );
